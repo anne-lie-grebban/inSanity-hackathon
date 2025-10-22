@@ -69,6 +69,9 @@ export const customerServiceType = defineType({
       name: 'seoImage',
       title: 'SEO Image',
       type: 'image',
+      options: {
+        hotspot: true,
+      },
       group: 'seo',
     }),
   ],

@@ -105,6 +105,9 @@ export const articleType = defineType({
       title: 'SEO Image',
       type: 'image',
       description: 'Image for social media sharing',
+      options: {
+        hotspot: true,
+      },
       group: 'seo',
     }),
   ],
