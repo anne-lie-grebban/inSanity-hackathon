@@ -11,5 +11,5 @@ export {iconObject} from './icon'
 export {imageObject} from './image'
 export {linkObject} from './link'
 export {richTextObject} from './richText'
+export {seoObject} from './seo'
 export {videoObject} from './video'
-

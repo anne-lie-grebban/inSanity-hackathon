@@ -2,6 +2,7 @@ import {pageType} from './page'
 import {articleType} from './article'
 import {storeType} from './store'
 import {customerServiceType} from './customerService'
+import {productCategoryType} from './productCategory'
 
 // Import singletons
 import {headerType, footerType} from './singletons'
@@ -16,6 +17,7 @@ import {
   imageObject,
   linkObject,
   richTextObject,
+  seoObject,
   videoObject,
 } from './objects'
 
@@ -57,6 +59,7 @@ export const schemaTypes = [
   articleType,
   storeType,
   customerServiceType,
+  productCategoryType,
 
   // Objects - Reusable components
   backgroundObject,
@@ -67,6 +70,7 @@ export const schemaTypes = [
   imageObject,
   linkObject,
   richTextObject,
+  seoObject,
   videoObject,
 
   // Blocks - Content builder components
