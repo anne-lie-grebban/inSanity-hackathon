@@ -18,6 +18,7 @@ import {
 
 // Import all blocks
 import {
+  // Core blocks
   carouselBlock,
   ctaBlock,
   faqBlock,
@@ -27,6 +28,20 @@ import {
   productGridBlock,
   textBlock,
   videoBlock as videoBlockType,
+  // Hero content blocks
+  panelsBlock,
+  articleHeroBlock,
+  // Additional ACF content blocks
+  articlesPromotionBlock,
+  columnsBlock,
+  discoverBlock,
+  htmlBlock,
+  informationBlock,
+  productPromotionBlock,
+  productsPromotionColumnsBlock,
+  productsPromotionSliderBlock,
+  tableBlock,
+  textSectionBlock,
 } from './blocks'
 
 export const schemaTypes = [
@@ -48,6 +63,7 @@ export const schemaTypes = [
   videoObject,
 
   // Blocks - Content builder components
+  // Core blocks
   carouselBlock,
   ctaBlock,
   faqBlock,
@@ -57,4 +73,18 @@ export const schemaTypes = [
   productGridBlock,
   textBlock,
   videoBlockType,
+  // Hero content blocks
+  panelsBlock,
+  articleHeroBlock,
+  // Additional ACF content blocks
+  articlesPromotionBlock,
+  columnsBlock,
+  discoverBlock,
+  htmlBlock,
+  informationBlock,
+  productPromotionBlock,
+  productsPromotionColumnsBlock,
+  productsPromotionSliderBlock,
+  tableBlock,
+  textSectionBlock,
 ]
