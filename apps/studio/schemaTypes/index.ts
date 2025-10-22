@@ -3,6 +3,9 @@ import {articleType} from './article'
 import {storeType} from './store'
 import {customerServiceType} from './customerService'
 
+// Import singletons
+import {headerType, footerType} from './singletons'
+
 // Import all reusable objects
 import {
   backgroundObject,
@@ -45,6 +48,10 @@ import {
 } from './blocks'
 
 export const schemaTypes = [
+  // Singletons - Global site settings
+  headerType,
+  footerType,
+
   // Documents
   pageType,
   articleType,

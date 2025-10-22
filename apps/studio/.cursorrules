@@ -99,6 +99,7 @@ Every `document` and `object` schema type should:
 - Have a customized `preview` property that shows rich contextual details about the document
 - Use `groups` when the schema type has more than a few fields to collate related fields and only show the most important group by default. These `groups` should use the icon property as well.
 - Use `fieldsets` with `options: {columns: 2}` if related fields could be grouped visually together, such as `startDate` and `endDate`
+- Use `fieldsets` with `options: {collapsible: true, collapsed: false}` for top-level fields in documents to create collapsible sections that improve organization and make the Studio interface cleaner. Group related fields logically (e.g., "Basket Labels", "Basket Buttons", "Empty Basket Content")
 
 ### Validation rules for fields
 
