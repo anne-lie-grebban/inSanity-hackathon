@@ -16,7 +16,9 @@ export default defineConfig({
   plugins: [
     structureTool(),
     visionTool(),
-    dashboardTool(),
+    dashboardTool({
+      widgets: [],
+    }),
     media(),
     documentInternationalization({
       supportedLanguages: [

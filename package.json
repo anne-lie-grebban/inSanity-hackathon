@@ -1,0 +1,21 @@
+{
+  "name": "insanity-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Monorepo for Sanity Studio and web app",
+  "scripts": {
+    "dev": "pnpm --parallel dev",
+    "dev:studio": "pnpm --filter studio dev",
+    "dev:web": "pnpm --filter web dev",
+    "build": "pnpm --recursive build",
+    "build:studio": "pnpm --filter studio build",
+    "build:web": "pnpm --filter web build",
+    "lint": "pnpm --recursive lint",
+    "typecheck": "pnpm --recursive typecheck"
+  },
+  "keywords": ["monorepo", "sanity", "pnpm"],
+  "engines": {
+    "node": ">=18",
+    "pnpm": ">=9"
+  }
+}
