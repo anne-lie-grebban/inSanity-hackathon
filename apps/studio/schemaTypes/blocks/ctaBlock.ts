@@ -9,17 +9,23 @@ export const ctaBlock = defineType({
   title: 'Call to Action',
   type: 'object',
   icon: BulbOutlineIcon,
+  fieldsets: [
+    {name: 'content', title: 'Content', options: {collapsible: true, collapsed: true}},
+    {name: 'settings', title: 'Settings', options: {collapsible: true, collapsed: true}},
+  ],
   fields: [
     defineField({
       name: 'heading',
       title: 'Heading',
       type: 'heading',
       validation: (Rule) => Rule.required(),
+      fieldset: 'content',
     }),
     defineField({
       name: 'text',
       title: 'Text',
       type: 'richText',
+      fieldset: 'content',
     }),
     defineField({
       name: 'buttons',
@@ -27,16 +33,19 @@ export const ctaBlock = defineType({
       type: 'array',
       of: [{type: 'button'}],
       validation: (Rule) => Rule.min(1).max(2).required(),
+      fieldset: 'content',
     }),
     defineField({
       name: 'image',
       title: 'Background Image (Optional)',
       type: 'customImage',
+      fieldset: 'settings',
     }),
     defineField({
       name: 'background',
       title: 'Background',
       type: 'background',
+      fieldset: 'settings',
     }),
     defineField({
       name: 'layout',
@@ -51,6 +60,7 @@ export const ctaBlock = defineType({
         layout: 'radio',
       },
       initialValue: 'center',
+      fieldset: 'settings',
     }),
     defineField({
       name: 'size',
@@ -65,6 +75,7 @@ export const ctaBlock = defineType({
         layout: 'radio',
       },
       initialValue: 'regular',
+      fieldset: 'settings',
     }),
   ],
   preview: {

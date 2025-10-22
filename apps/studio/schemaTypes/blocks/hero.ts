@@ -10,23 +10,39 @@ export const heroBlock = defineType({
   title: 'Hero Section',
   type: 'object',
   icon: BlockElementIcon,
+  fieldsets: [
+    {name: 'content', title: 'Content', options: {collapsible: true, collapsed: true}},
+    {name: 'media', title: 'Media', options: {collapsible: true, collapsed: true}},
+    {name: 'settings', title: 'Layout & Settings', options: {collapsible: true, collapsed: true}},
+  ],
   fields: [
     defineField({
       name: 'heading',
       title: 'Heading',
       type: 'heading',
       validation: (Rule) => Rule.required(),
+      fieldset: 'content',
     }),
     defineField({
       name: 'subheading',
       title: 'Subheading',
       type: 'string',
       description: 'Optional subheading text',
+      fieldset: 'content',
     }),
     defineField({
       name: 'text',
       title: 'Text Content',
       type: 'richText',
+      fieldset: 'content',
+    }),
+    defineField({
+      name: 'buttons',
+      title: 'Call to Action Buttons',
+      type: 'array',
+      of: [{type: 'button'}],
+      validation: (Rule) => Rule.max(3),
+      fieldset: 'content',
     }),
     defineField({
       name: 'mediaType',
@@ -41,30 +57,27 @@ export const heroBlock = defineType({
         layout: 'radio',
       },
       initialValue: 'image',
+      fieldset: 'media',
     }),
     defineField({
       name: 'image',
       title: 'Hero Image',
       type: 'customImage',
       hidden: ({parent}) => parent?.mediaType !== 'image',
+      fieldset: 'media',
     }),
     defineField({
       name: 'video',
       title: 'Hero Video',
       type: 'video',
       hidden: ({parent}) => parent?.mediaType !== 'video',
-    }),
-    defineField({
-      name: 'buttons',
-      title: 'Call to Action Buttons',
-      type: 'array',
-      of: [{type: 'button'}],
-      validation: (Rule) => Rule.max(3),
+      fieldset: 'media',
     }),
     defineField({
       name: 'background',
       title: 'Background',
       type: 'background',
+      fieldset: 'settings',
     }),
     defineField({
       name: 'layout',
@@ -79,6 +92,7 @@ export const heroBlock = defineType({
         layout: 'radio',
       },
       initialValue: 'left',
+      fieldset: 'settings',
     }),
     defineField({
       name: 'fullHeight',
@@ -86,6 +100,7 @@ export const heroBlock = defineType({
       type: 'boolean',
       description: 'Make the hero section full viewport height',
       initialValue: false,
+      fieldset: 'settings',
     }),
   ],
   preview: {

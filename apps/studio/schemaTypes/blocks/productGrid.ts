@@ -10,16 +10,23 @@ export const productGridBlock = defineType({
   title: 'Product Grid',
   type: 'object',
   icon: ThLargeIcon,
+  fieldsets: [
+    {name: 'content', title: 'Content', options: {collapsible: true, collapsed: true}},
+    {name: 'products', title: 'Product Selection', options: {collapsible: true, collapsed: true}},
+    {name: 'settings', title: 'Display Settings', options: {collapsible: true, collapsed: true}},
+  ],
   fields: [
     defineField({
       name: 'heading',
       title: 'Section Heading',
       type: 'heading',
+      fieldset: 'content',
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'richText',
+      fieldset: 'content',
     }),
     defineField({
       name: 'selectionType',
@@ -38,6 +45,7 @@ export const productGridBlock = defineType({
       },
       initialValue: 'manual',
       validation: (Rule) => Rule.required(),
+      fieldset: 'products',
     }),
     defineField({
       name: 'productSkus',
@@ -46,6 +54,7 @@ export const productGridBlock = defineType({
       of: [{type: 'string'}],
       description: 'Enter product SKUs manually',
       hidden: ({parent}) => parent?.selectionType !== 'manual',
+      fieldset: 'products',
     }),
     defineField({
       name: 'categorySlug',
@@ -53,6 +62,7 @@ export const productGridBlock = defineType({
       type: 'string',
       description: 'Enter the category slug/ID',
       hidden: ({parent}) => parent?.selectionType !== 'category',
+      fieldset: 'products',
     }),
     defineField({
       name: 'brandSlug',
@@ -60,6 +70,7 @@ export const productGridBlock = defineType({
       type: 'string',
       description: 'Enter the brand slug/ID',
       hidden: ({parent}) => parent?.selectionType !== 'brand',
+      fieldset: 'products',
     }),
     defineField({
       name: 'maxProducts',
@@ -68,6 +79,7 @@ export const productGridBlock = defineType({
       description: 'Maximum number of products to display',
       validation: (Rule) => Rule.min(1).max(50),
       initialValue: 12,
+      fieldset: 'products',
     }),
     defineField({
       name: 'columns',
@@ -96,6 +108,7 @@ export const productGridBlock = defineType({
           initialValue: 4,
         }),
       ],
+      fieldset: 'settings',
     }),
     defineField({
       name: 'showFilters',
@@ -103,6 +116,7 @@ export const productGridBlock = defineType({
       type: 'boolean',
       description: 'Display product filters (category, price, etc.)',
       initialValue: false,
+      fieldset: 'settings',
     }),
     defineField({
       name: 'showSorting',
@@ -110,12 +124,14 @@ export const productGridBlock = defineType({
       type: 'boolean',
       description: 'Allow users to sort products',
       initialValue: true,
+      fieldset: 'settings',
     }),
     defineField({
       name: 'viewAllButton',
       title: 'View All Button',
       type: 'button',
       description: 'Optional button to view all products',
+      fieldset: 'content',
     }),
   ],
   preview: {

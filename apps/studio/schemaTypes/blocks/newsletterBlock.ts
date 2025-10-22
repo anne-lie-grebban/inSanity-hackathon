@@ -10,18 +10,25 @@ export const newsletterBlock = defineType({
   title: 'Newsletter Signup',
   type: 'object',
   icon: EnvelopeIcon,
+  fieldsets: [
+    {name: 'content', title: 'Content', options: {collapsible: true, collapsed: true}},
+    {name: 'form', title: 'Form Settings', options: {collapsible: true, collapsed: true}},
+    {name: 'settings', title: 'Layout & Settings', options: {collapsible: true, collapsed: true}},
+  ],
   fields: [
     defineField({
       name: 'heading',
       title: 'Heading',
       type: 'heading',
       validation: (Rule) => Rule.required(),
+      fieldset: 'content',
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'richText',
       description: 'Explain the benefits of subscribing',
+      fieldset: 'content',
     }),
     defineField({
       name: 'emailPlaceholder',
@@ -29,18 +36,21 @@ export const newsletterBlock = defineType({
       type: 'string',
       description: 'Placeholder text for email input',
       initialValue: 'Enter your email',
+      fieldset: 'form',
     }),
     defineField({
       name: 'submitButton',
       title: 'Submit Button',
       type: 'button',
       validation: (Rule) => Rule.required(),
+      fieldset: 'form',
     }),
     defineField({
       name: 'consentCheckbox',
       title: 'Consent Checkbox',
       type: 'checkbox',
       validation: (Rule) => Rule.required(),
+      fieldset: 'form',
     }),
     defineField({
       name: 'successMessage',
@@ -48,6 +58,7 @@ export const newsletterBlock = defineType({
       type: 'string',
       description: 'Message shown after successful signup',
       initialValue: 'Thank you for subscribing!',
+      fieldset: 'form',
     }),
     defineField({
       name: 'errorMessage',
@@ -55,11 +66,13 @@ export const newsletterBlock = defineType({
       type: 'string',
       description: 'Message shown if signup fails',
       initialValue: 'Something went wrong. Please try again.',
+      fieldset: 'form',
     }),
     defineField({
       name: 'background',
       title: 'Background',
       type: 'background',
+      fieldset: 'settings',
     }),
     defineField({
       name: 'layout',
@@ -74,6 +87,7 @@ export const newsletterBlock = defineType({
         layout: 'radio',
       },
       initialValue: 'inline',
+      fieldset: 'settings',
     }),
   ],
   preview: {

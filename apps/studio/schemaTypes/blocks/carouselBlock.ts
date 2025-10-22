@@ -9,11 +9,16 @@ export const carouselBlock = defineType({
   title: 'Carousel/Slider',
   type: 'object',
   icon: ImagesIcon,
+  fieldsets: [
+    {name: 'content', title: 'Content', options: {collapsible: true, collapsed: true}},
+    {name: 'settings', title: 'Carousel Settings', options: {collapsible: true, collapsed: true}},
+  ],
   fields: [
     defineField({
       name: 'heading',
       title: 'Heading',
       type: 'heading',
+      fieldset: 'content',
     }),
     defineField({
       name: 'slides',
@@ -63,6 +68,7 @@ export const carouselBlock = defineType({
         },
       ],
       validation: (Rule) => Rule.min(2).required(),
+      fieldset: 'content',
     }),
     defineField({
       name: 'autoplay',
@@ -70,6 +76,7 @@ export const carouselBlock = defineType({
       type: 'boolean',
       description: 'Automatically advance slides',
       initialValue: true,
+      fieldset: 'settings',
     }),
     defineField({
       name: 'autoplaySpeed',
@@ -79,12 +86,14 @@ export const carouselBlock = defineType({
       validation: (Rule) => Rule.min(2).max(10),
       initialValue: 5,
       hidden: ({parent}) => !parent?.autoplay,
+      fieldset: 'settings',
     }),
     defineField({
       name: 'showArrows',
       title: 'Show Navigation Arrows',
       type: 'boolean',
       initialValue: true,
+      fieldset: 'settings',
     }),
     defineField({
       name: 'showDots',
@@ -92,6 +101,7 @@ export const carouselBlock = defineType({
       type: 'boolean',
       description: 'Show dot indicators',
       initialValue: true,
+      fieldset: 'settings',
     }),
   ],
   preview: {

@@ -10,17 +10,23 @@ export const faqBlock = defineType({
   title: 'FAQ Section',
   type: 'object',
   icon: HelpCircleIcon,
+  fieldsets: [
+    {name: 'content', title: 'Content', options: {collapsible: true, collapsed: true}},
+    {name: 'settings', title: 'Settings', options: {collapsible: true, collapsed: true}},
+  ],
   fields: [
     defineField({
       name: 'heading',
       title: 'Section Heading',
       type: 'heading',
+      fieldset: 'content',
     }),
     defineField({
       name: 'description',
       title: 'Description',
       type: 'richText',
       description: 'Optional introductory text',
+      fieldset: 'content',
     }),
     defineField({
       name: 'faqItems',
@@ -58,6 +64,7 @@ export const faqBlock = defineType({
         },
       ],
       validation: (Rule) => Rule.min(1).required(),
+      fieldset: 'content',
     }),
     defineField({
       name: 'displayStyle',
@@ -72,6 +79,7 @@ export const faqBlock = defineType({
         layout: 'radio',
       },
       initialValue: 'accordion-single',
+      fieldset: 'settings',
     }),
   ],
   preview: {
