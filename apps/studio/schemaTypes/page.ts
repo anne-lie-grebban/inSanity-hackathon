@@ -29,6 +29,20 @@ export const pageType = defineType({
     },
   ],
   fields: [
+    // Language fields for document internationalization
+    defineField({
+      name: 'language',
+      type: 'string',
+      readOnly: true,
+      hidden: true,
+    }),
+    defineField({
+      name: 'translations',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'page'}]}],
+      readOnly: true,
+      hidden: true,
+    }),
     defineField({
       name: 'title',
       type: 'string',
