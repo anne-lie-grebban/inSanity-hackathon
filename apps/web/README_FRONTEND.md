@@ -36,12 +36,20 @@ pnpm install
 
 ### 2. Configure Sanity
 
-The `.env` file is already configured with:
+Create a `.env` file in the `apps/web` directory based on `.env.example`:
+
+```bash
+cp .env.example .env
+```
+
+Then edit `.env` and add your actual Sanity project ID:
 
 ```
-REACT_APP_SANITY_PROJECT_ID=n7lt74il
+REACT_APP_SANITY_PROJECT_ID=your-actual-project-id
 REACT_APP_SANITY_DATASET=production
 ```
+
+> **Note:** The `.env` file is gitignored and will not be committed.
 
 ### 3. Start development server
 

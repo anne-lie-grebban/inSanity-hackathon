@@ -11,8 +11,8 @@ export default defineConfig({
   name: 'default',
   title: 'Hackathon Sanity',
 
-  projectId: 'n7lt74il',
-  dataset: 'production',
+  projectId: process.env.SANITY_STUDIO_PROJECT_ID || '',
+  dataset: process.env.SANITY_STUDIO_DATASET || 'production',
 
   plugins: [
     structureTool({
